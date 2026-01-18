@@ -8,7 +8,7 @@ X = np.array([[0,0], [0,1], [1,0], [1,1]], dtype="float32")
 y = np.array([[1], [0], [0], [1]], dtype="float32")
 model = tf.keras.Sequential([
     tf.keras.Input(shape=(2,)),
-    tf.keras.layers.Dense(8, input_dim=2, activation='tanh'),
+    tf.keras.layers.Dense(2, input_dim=2, activation='tanh'),
     tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.1),
@@ -16,7 +16,7 @@ model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.1),
               metrics=['accuracy'])
 print("running it nfinite x")
 start_time = time.time()
-model.fit(X, y, epochs=1000, verbose=0) 
+model.fit(X, y, epochs=500, verbose=0) 
 end_time = time.time()
 print(f"Training time: {end_time - start_time:.4f} seconds")
 print("Training complete.")
